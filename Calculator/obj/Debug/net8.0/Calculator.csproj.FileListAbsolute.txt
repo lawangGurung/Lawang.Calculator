@@ -37,3 +37,4 @@
 /home/lawang/Desktop/Academy/Lawang.Calculator/Calculator/obj/Debug/net8.0/Calculator.pdb
 /home/lawang/Desktop/Academy/Lawang.Calculator/Calculator/obj/Debug/net8.0/Calculator.genruntimeconfig.cache
 /home/lawang/Desktop/Academy/Lawang.Calculator/Calculator/obj/Debug/net8.0/ref/Calculator.dll
+/home/lawang/Desktop/Academy/Lawang.Calculator/Calculator/obj/Debug/net8.0/Calculator.sourcelink.json

@@ -22,3 +22,4 @@
 /home/lawang/Desktop/Academy/Lawang.Calculator/CalculatorLibrary/obj/Debug/net8.0/refint/CalculatorLibrary.dll
 /home/lawang/Desktop/Academy/Lawang.Calculator/CalculatorLibrary/obj/Debug/net8.0/CalculatorLibrary.pdb
 /home/lawang/Desktop/Academy/Lawang.Calculator/CalculatorLibrary/obj/Debug/net8.0/ref/CalculatorLibrary.dll
+/home/lawang/Desktop/Academy/Lawang.Calculator/CalculatorLibrary/obj/Debug/net8.0/CalculatorLibrary.sourcelink.json
