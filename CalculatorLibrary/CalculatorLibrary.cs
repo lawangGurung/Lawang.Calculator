@@ -7,17 +7,18 @@ public class Calculator
 {
 
     JsonWriter writer;
-    
+    public List<Result> resultList = new List<Result>();
+
     public Calculator()
     {
-       StreamWriter logFile = File.CreateText("calculatorlog.json") ;
-       logFile.AutoFlush = true;
-       writer = new JsonTextWriter(logFile);
+        StreamWriter logFile = File.CreateText("calculatorlog.json");
+        logFile.AutoFlush = true;
+        writer = new JsonTextWriter(logFile);
 
-       writer.Formatting = Formatting.Indented;
-       writer.WriteStartObject();
-       writer.WritePropertyName("Operations");
-       writer.WriteStartArray();
+        writer.Formatting = Formatting.Indented;
+        writer.WriteStartObject();
+        writer.WritePropertyName("Operations");
+        writer.WriteStartArray();
     }
     public double DoOperation(double num1, double num2, string op)
     {
@@ -31,24 +32,67 @@ public class Calculator
 
         switch (op)
         {
-            case "a":
+            case "+":
                 result = num1 + num2;
+                resultList.Add(new Result
+                {
+                    Operand1 = num1,
+                    Operand2 = num2,
+                    Operation = op,
+                    Answer = result
+                });
                 writer.WriteValue("Add");
                 break;
-            case "s":
+            case "-":
                 result = num1 - num2;
+                resultList.Add(new Result
+                {
+                    Operand1 = num1,
+                    Operand2 = num2,
+                    Operation = op,
+                    Answer = result
+                });
                 writer.WriteValue("Subtract");
                 break;
-            case "m":
+            case "*":
                 result = num1 * num2;
+                resultList.Add(new Result
+                {
+                    Operand1 = num1,
+                    Operand2 = num2,
+                    Operation = op,
+                    Answer = result
+                });
                 writer.WriteValue("Multiply");
                 break;
-            case "d":
+            case "/":
                 if (num2 != 0)
                 {
                     result = num1 / num2;
+                    resultList.Add(new Result
+                    {
+                        Operand1 = num1,
+                        Operand2 = num2,
+                        Operation = op,
+                        Answer = result
+                    });
                 }
                 writer.WriteValue("Divide");
+                break;
+
+            case "x":
+                resultList.Clear();
+                break;
+
+            case "s":
+                Console.Clear();
+                Console.WriteLine("---\t Calculation History \t-----");
+                foreach(var cal in resultList)
+                {
+                    cal.Display();
+                }
+
+                Console.ReadLine();
                 break;
 
             default:
@@ -68,4 +112,5 @@ public class Calculator
         writer.WriteEndObject();
         writer.Close();
     }
+
 }
