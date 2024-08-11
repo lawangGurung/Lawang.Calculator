@@ -7,7 +7,7 @@ public class Calculator
 {
 
     JsonWriter writer;
-    public List<Result> resultList = new List<Result>();
+    public List<Result> ResultList = new List<Result>();
 
     public Calculator()
     {
@@ -34,7 +34,7 @@ public class Calculator
         {
             case "+":
                 result = num1 + num2;
-                resultList.Add(new Result
+                ResultList.Add(new Result
                 {
                     Operand1 = num1,
                     Operand2 = num2,
@@ -45,7 +45,7 @@ public class Calculator
                 break;
             case "-":
                 result = num1 - num2;
-                resultList.Add(new Result
+                ResultList.Add(new Result
                 {
                     Operand1 = num1,
                     Operand2 = num2,
@@ -56,7 +56,7 @@ public class Calculator
                 break;
             case "*":
                 result = num1 * num2;
-                resultList.Add(new Result
+                ResultList.Add(new Result
                 {
                     Operand1 = num1,
                     Operand2 = num2,
@@ -69,7 +69,7 @@ public class Calculator
                 if (num2 != 0)
                 {
                     result = num1 / num2;
-                    resultList.Add(new Result
+                    ResultList.Add(new Result
                     {
                         Operand1 = num1,
                         Operand2 = num2,
@@ -80,19 +80,66 @@ public class Calculator
                 writer.WriteValue("Divide");
                 break;
 
-            case "x":
-                resultList.Clear();
+            case "^":
+                result = Math.Pow(num1, num2);
+                ResultList.Add(new Result
+                {
+                    Operand1 = num1,
+                    Operand2 = num2,
+                    Operation = op,
+                    Answer = result
+                });
+                writer.WriteValue("Power");
+                break;
+
+            case "r":
+                result = Math.Sqrt(num1);
+                ResultList.Add(new Result
+                {
+                    Operand1 = num1,
+                    Operand2 = null,
+                    Operation = "Square root",
+                    Answer = result
+                });
+                writer.WriteValue("Square root");
                 break;
 
             case "s":
-                Console.Clear();
-                Console.WriteLine("---\t Calculation History \t-----");
-                foreach(var cal in resultList)
+                result = Math.Sin(num1);
+                ResultList.Add(new Result
                 {
-                    cal.Display();
-                }
+                    Operand1 = num1,
+                    Operand2 = null,
+                    Operation = op,
+                    Answer = result
+                });
+                writer.WriteValue("Sine");
+                break;
 
-                Console.ReadLine();
+            case "c":
+                result = Math.Cos(num1);
+                ResultList.Add(new Result
+                {
+                    Operand1 = num1,
+                    Operand2 = null,
+                    Operation = op,
+                    Answer = result
+                });
+
+                writer.WriteValue("Cosine");
+                break;
+
+            case "t":
+                result = Math.Tan(num1);
+                ResultList.Add(new Result
+                {
+                    Operand1 = num1,
+                    Operand2 = null,
+                    Operation = op,
+                    Answer = result
+                });
+
+                writer.WriteValue("Tangent");
                 break;
 
             default:
