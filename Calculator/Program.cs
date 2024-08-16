@@ -79,7 +79,7 @@ class Program
 
                         string? op = Console.ReadLine();
 
-                        while (op == null || !Regex.IsMatch(op, @"[\+|\-|\*|/|r|p|s|c|t]"))
+                        while (op == null || !Regex.IsMatch(op, @"^[\+|\-|\*|/|\^|r|p|s|c|t]$"))
                         {
                             Console.WriteLine("Error: Unrecognized operation. Please Try Again!!");
                             op = Console.ReadLine();
